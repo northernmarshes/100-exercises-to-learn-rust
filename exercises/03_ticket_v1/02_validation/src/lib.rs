@@ -1,6 +1,7 @@
 struct Ticket {
     title: String,
     description: String,
+
     status: String,
 }
 
@@ -18,7 +19,9 @@ impl Ticket {
     // as well as some `String` methods. Use the documentation of Rust's standard library
     // to find the most appropriate options -> https://doc.rust-lang.org/std/string/struct.String.html
     fn new(title: String, description: String, status: String) -> Self {
-        todo!();
+        // let (_prt, len, _capacity) = description.clone().into_raw_parts();
+        // assert_eq!(500, len);
+
         Self {
             title,
             description,
