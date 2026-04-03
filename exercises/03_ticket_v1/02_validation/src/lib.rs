@@ -1,7 +1,6 @@
 struct Ticket {
     title: String,
     description: String,
-
     status: String,
 }
 
@@ -19,8 +18,22 @@ impl Ticket {
     // as well as some `String` methods. Use the documentation of Rust's standard library
     // to find the most appropriate options -> https://doc.rust-lang.org/std/string/struct.String.html
     fn new(title: String, description: String, status: String) -> Self {
-        // let (_prt, len, _capacity) = description.clone().into_raw_parts();
-        // assert_eq!(500, len);
+        // let valid_statuses: (String, String, String) = ("To-Do".to_string(), "In Progress".to_string(), "Done".to_string());
+
+        if description.len() >= 500 {
+            panic!("Description cannot be longer than 500 bytes");
+        } else if description.len() < 1 {
+            panic!("Description cannot be empty");
+        } else if title.len() >= 50 {
+            panic!("Title cannot be longer than 50 bytes");
+        } else if title.len() < 1 {
+            panic! ("Title cannot be empty");
+        } 
+        if status == "To-Do".to_string() || status == "In Progress".to_string() || status == "Done".to_string() {
+            // pass
+        } else {
+            panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed")
+        }
 
         Self {
             title,
